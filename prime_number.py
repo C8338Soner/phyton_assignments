@@ -1,22 +1,16 @@
-print( "Get all Prime numbers in a range\n")
-num1 = int(input("Enter number in the range: "))
-
-prime_list = []
-
-def is_prime(num) :
-    result = "Prime"
-    for t in range (2,num) :
-        if not num%t :
-            result = "Not Prime"
-            break
-    return result
-
-def get_all_prime(num1) :
-    for x in range(num1) :
-        if is_prime(x) == "Prime" :
-            prime_list.append(x)
-    return prime_list
+print("How many prime number?")
+num1 = int(input("Enter a number:"))
+prime = [1]
+exercises =[]
+for i  in reversed(range(1,num1+1)) :
+    for ii in range(1,num1) :
+        if not i%ii :
+            exercises.append(i)
+    if len(exercises)>2:
+        exercises.clear()
+    else:
+        prime.extend(set(exercises)) 
 
 
-get_all_prime(num1)
-print("\n", prime_list)
+print("in number", num1, ", there are ",len(prime), "prime numbers")
+print("these are: ", sorted(prime))
